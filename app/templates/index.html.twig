@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Welcome phonebook user !
+{% endblock %}
+
+{% block body %}
+    <div class="headeris">¬ WELLCOME</div>
+    <div class="container d-flex justify-content-center">
+        <div class="main-box w-100">
+            <h1 class="title">PhoneBook APP</h1>
+            <div class="small-box">
+                <h3>Auth system</h3>
+                <ul>
+                    <li>User login</li>
+                    <li>User Register</li>
+                    <li>Fully validating</li>
+                </ul>
+            </div>
+            <div class="small-box">
+                <h3>Contacts system</h3>
+                <ul>
+                    <li>Full CRUD</li>
+                    <li>Sharing system, with cancel ability</li>
+                    <li>Validator added</li>
+                </ul>
+            </div>
+            <div class="small-box">
+                <h3>Tests</h3>
+                <ul>
+                    <li>Simple UnitTest</li>
+                    <li>Crawling test from login to loggout</li>
+                </ul>
+            </div>
+            <div class="small-box">
+                <h3>Tools</h3>
+                <ul>
+                    <li>Symfony</li>
+                    <li>Docker</li>
+                    <li>Bootstrap</li>
+                </ul>
+            </div>
+            <div class="small-box">
+                <h3>Versions</h3>
+                <ul>
+                    <li>PHP 7.4</li>
+                    <li>MySQL 5.7</li>
+                    <li>App Version v1.0 beta</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-box w-100 d-flex justify-content-center">
+            <img src="{{ asset('img/sf_big.png') }}" class="img-fluid" width="300" alt="SF LOGO">
+        </div>
+    </div>
+{% endblock %}

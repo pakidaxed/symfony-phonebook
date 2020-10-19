@@ -1,0 +1,5 @@
+<form class="d-inline" method="post" action="{{ path('sharing_cancel', {'id': contact.id}) }}" onsubmit="return confirm('Are you sure you want to cancel?');">
+    <input type="hidden" name="_method" value="CANCEL">
+    <input type="hidden" name="_token" value="{{ csrf_token('cancel' ~ contact.id) }}">
+    <button class="btn btn-danger btn-sm">CANCEL</button>
+</form>

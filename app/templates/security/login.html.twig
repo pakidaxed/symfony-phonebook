@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="headeris">¬ USER LOGIN</div>
+    <form class="form-signin" method="post">
+        <div class="text-center">
+            <img class="mb-4" src="https://miro.medium.com/max/659/1*zobWIgztw83sxYE8rlREwA.png" alt="" width="220">
+        </div>
+        <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address"
+               value="{{ last_username }}" required
+               autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+
+        <input type="hidden" name="csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+        {% if error %}
+            <div class="alert alert-danger mb-3">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        <button class="btn btn-lg btn-dark btn-block" type="submit">Login</button>
+    </form>
+
+{% endblock %}

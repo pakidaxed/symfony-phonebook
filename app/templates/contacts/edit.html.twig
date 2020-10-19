@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Contacts{% endblock %}
+
+{% block body %}
+    <div class="headeris">EDIT CONTACT</div>
+    <div class="container-fluid">
+
+        {{ include('contacts/_form.html.twig', {'button_label': 'UPDATE'}) }}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New user registration{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="headeris">¬ NEW USER REGISTRATION</div>
+    {{ form_start(form, { 'attr': {'class': 'form-signin'} }) }}
+    <div class="text-center">
+        <img class="mb-4" src="{{ asset('img/sfdoc.png') }}" alt="" width="220">
+    </div>
+    <h1 class="h3 mb-3 font-weight-normal">Please fill the form</h1>
+    {{ form_widget(form) }}
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" required> I confirm knowing that this project was made by developer
+            who applies for Junior position, so I won`t judge so much.
+        </label>
+    </div>
+    <button class="btn btn-lg btn-dark btn-block" type="submit">Register</button>
+    {{ form_end(form) }}
+{% endblock %}

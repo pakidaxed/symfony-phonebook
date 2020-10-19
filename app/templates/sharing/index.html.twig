@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sharing center{% endblock %}
+{% block body %}
+    <div class="headeris">RECEIVED CONTACTS</div>
+    <div class="container-fluid">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        <table class="table table-hover table-striped table-dark">
+            <thead>
+            <tr>
+                <th style="width: 2%" class="text-center">Id</th>
+                <th style="width: 14%">Name</th>
+                <th style="width: 14%">Email</th>
+                <th style="width: 14%">Phone</th>
+                <th style="width: 30%">Comment</th>
+                <th style="width: 15%">Sender</th>
+                <th style="width: 11%" class="text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in received_contacts %}
+                <tr>
+                    <td class="text-center align-middle">{{ loop.index }}</td>
+                    <td class="align-middle">{{ contact.name }}</td>
+                    <td class="align-middle">{{ contact.email }}</td>
+                    <td class="align-middle">{{ contact.phone }}</td>
+                    <td class="align-middle">{{ contact.comment }}</td>
+                    <td class="align-middle">{{ idToName(contact.owner) }}</td>
+                    <td class="text-center align-top">
+                        <a class="btn btn-success btn-sm"
+                           href="{{ path('sharing_accept', {'id': contact.id}) }}">ACCEPT</a>
+                        {{ include('sharing/_cancel_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">No new received contacts</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="headeris">SENT CONTACTS</div>
+    <div class="container-fluid">
+
+        <table class="table table-hover table-striped table-dark">
+            <thead>
+            <tr>
+                <th style="width: 2%" class="text-center">Id</th>
+                <th style="width: 14%">Name</th>
+                <th style="width: 14%">Email</th>
+                <th style="width: 14%">Phone</th>
+                <th style="width: 34%">Comment</th>
+                <th style="width: 15%">Receiver</th>
+                <th style="width: 7%" class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in sent_contacts %}
+                <tr>
+                    <td class="text-center align-middle">{{ loop.index }}</td>
+                    <td class="align-middle">{{ contact.name }}</td>
+                    <td class="align-middle">{{ contact.email }}</td>
+                    <td class="align-middle">{{ contact.phone }}</td>
+                    <td class="align-middle">{{ contact.comment }}</td>
+                    <td class="align-middle">{{ idToName(contact.receiver) }}</td>
+                    <td class="text-center align-top">
+                        {{ include('sharing/_cancel_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">No sent contacts</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

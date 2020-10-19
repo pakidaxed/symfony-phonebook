@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Share Contact{% endblock %}
+
+{% block body %}
+    <div class="headeris">SHARE CONTACT</div>
+    <div class="container-fluid">
+        {% if error %}
+            {% for err in error %}
+                <div class="alert alert-danger">{{ err }}</div>
+            {% endfor %}
+        {% endif %}
+        {{ include('contacts/_form.html.twig', {'button_label': 'SHARE'}) }}
+    </div>
+{% endblock %}
