@@ -23,11 +23,11 @@ y | Y | yes)
   tput sgr0 #Reset text attributes to normal without clear.
   echo "\e[5mUpdating composer and downloading all vendors..."
   tput sgr0 #Reset text attributes to normal without clear.
-  docker exec -it php74 php bin/console cache:clear
-  sleep 1
   docker exec -it php74 composer install
   sleep 1
   docker exec -it php74 composer update
+  sleep 1
+  docker exec -it php74 php bin/console cache:clear
   sleep 1
   echo "\e[5mCreating main database if doesnt exists..."
   tput sgr0 #Reset text attributes to normal without clear.
