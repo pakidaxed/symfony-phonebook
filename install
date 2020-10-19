@@ -18,7 +18,7 @@ y | Y | yes)
   docker-compose up -d --build
   echo "\e[5mWaiting some time for database to create..."
   tput sgr0 #Reset text attributes to normal without clear.
-  sleep 15 # set to 20-30 dont forget to mysql db to create files
+  sleep 15  # set to 20-30 dont forget to mysql db to create files
   echo "\e[32mDONE\r"
   tput sgr0 #Reset text attributes to normal without clear.
   echo "\e[5mUpdating composer and downloading all vendors..."
@@ -47,14 +47,13 @@ y | Y | yes)
   echo "ENJOY ! © Tomas Jucius (jucius.tomas@gmail.com) 2020\r"
   ;;
 n | N | no)
+  echo "\e[31mInstalltion was canceled.\r"
   exit
   return 1
-  echo "\e[31mInstalltion was canceled.\r"
   ;;
 *)
+  echo "\e[31mInvalid answer. YES (yes/y/Y) or NO (no/n/N) only\r"
   exit
   return 1
-  echo "\e[31mInvalid answer. YES (yes/y/Y) or NO (no/n/N) only\r"
   ;;
 esac
-
